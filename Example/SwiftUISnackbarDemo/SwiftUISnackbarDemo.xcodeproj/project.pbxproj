@@ -34,21 +34,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		187D003F2D6E8A0C00CC1AE8 /* iOS Example */ = {
+		187D003F2D6E8A0C00CC1AE8 /* SwiftUISnackbarDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			name = "iOS Example";
 			path = SwiftUISnackbarDemo;
 			sourceTree = "<group>";
 		};
-		187D00512D6E8A0F00CC1AE8 /* iOS ExampleTests */ = {
+		187D00512D6E8A0F00CC1AE8 /* SwiftUISnackbarDemoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			name = "iOS ExampleTests";
 			path = SwiftUISnackbarDemoTests;
 			sourceTree = "<group>";
 		};
-		187D005B2D6E8A0F00CC1AE8 /* iOS ExampleUITests */ = {
+		187D005B2D6E8A0F00CC1AE8 /* SwiftUISnackbarDemoUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			name = "iOS ExampleUITests";
 			path = SwiftUISnackbarDemoUITests;
 			sourceTree = "<group>";
 		};
@@ -83,9 +80,9 @@
 		187D00342D6E8A0C00CC1AE8 = {
 			isa = PBXGroup;
 			children = (
-				187D003F2D6E8A0C00CC1AE8 /* iOS Example */,
-				187D00512D6E8A0F00CC1AE8 /* iOS ExampleTests */,
-				187D005B2D6E8A0F00CC1AE8 /* iOS ExampleUITests */,
+				187D003F2D6E8A0C00CC1AE8 /* SwiftUISnackbarDemo */,
+				187D00512D6E8A0F00CC1AE8 /* SwiftUISnackbarDemoTests */,
+				187D005B2D6E8A0F00CC1AE8 /* SwiftUISnackbarDemoUITests */,
 				187D003E2D6E8A0C00CC1AE8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,7 +113,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				187D003F2D6E8A0C00CC1AE8 /* iOS Example */,
+				187D003F2D6E8A0C00CC1AE8 /* SwiftUISnackbarDemo */,
 			);
 			name = SwiftUISnackbarDemo;
 			packageProductDependencies = (
@@ -140,7 +137,7 @@
 				187D00502D6E8A0F00CC1AE8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				187D00512D6E8A0F00CC1AE8 /* iOS ExampleTests */,
+				187D00512D6E8A0F00CC1AE8 /* SwiftUISnackbarDemoTests */,
 			);
 			name = SwiftUISnackbarDemoTests;
 			packageProductDependencies = (
@@ -163,7 +160,7 @@
 				187D005A2D6E8A0F00CC1AE8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				187D005B2D6E8A0F00CC1AE8 /* iOS ExampleUITests */,
+				187D005B2D6E8A0F00CC1AE8 /* SwiftUISnackbarDemoUITests */,
 			);
 			name = SwiftUISnackbarDemoUITests;
 			packageProductDependencies = (

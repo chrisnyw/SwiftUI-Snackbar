@@ -11,8 +11,26 @@ public extension Snackbar {
     typealias ActionHanlder = () -> Void
     
     public struct Decorator: Equatable {
+        /// Set the snackbar maximum width
+        let width: Double
+        /// Set snackbar background color
         let backgroundColor: Color
-        let foregroundColor: Color
+        /// Set the title text color
+        let titleTextColor: Color
+        /// Set the message text color
+        let messageTextColor: Color
+        
+        public init(
+            width: Double = .infinity,
+            backgroundColor: Color = Color(UIColor.secondarySystemBackground),
+            titleTextColor: Color = .primary,
+            messageTextColor: Color = .primary
+        ) {
+            self.width = width
+            self.backgroundColor = backgroundColor
+            self.titleTextColor = titleTextColor
+            self.messageTextColor = messageTextColor
+        }
     }
     
     public enum Icon: Hashable {
@@ -77,22 +95,45 @@ public extension Snackbar {
         case fixed(seconds: TimeInterval)
         case infinite
     }
+    
+    public struct Properties: Hashable {
+        /// Configure the snackbar position
+        let position: Position
+        /// Configure the duration of snackbar to be displayed
+        let duration: Duration
+        /// Disable haptic vibration when message is showing up
+        let disableHapticVibration: Bool
+        
+        public init(
+            position: Snackbar.Position = .top,
+            duration: Snackbar.Duration = .fixed(seconds: 3),
+            disableHapticVibration: Bool = false
+        ) {
+            self.position = position
+            self.duration = duration
+            self.disableHapticVibration = disableHapticVibration
+        }
+    }
 }
 
 extension Snackbar.Decorator {
-    public static let `default` = Self(backgroundColor: Color(UIColor.secondarySystemBackground), foregroundColor: .primary)
+    public static let `default` = Self()
+}
+
+extension Snackbar.Properties {
+    public static let `default` = Self()
 }
 
 extension Snackbar.Icon {
-    public var title: String {
+    public var description: String {
         switch self {
         case .none: return "None"
         case .error: return "Error"
         case .warning: return "Warning"
         case .info: return "Info"
         case .success: return "Success"
-        case .system: return "System"
-        case .custom: return  "Custom"
+        case .system(let imageName, _): return "System_\(imageName)"
+        case .custom(let imageName): return  "Custom_\(imageName)"
         }
     }
     

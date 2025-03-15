@@ -8,32 +8,32 @@
 import Foundation
 
 public struct Snackbar: Equatable {
+    /// Optional title text
     let title: String?
+    /// Compulsory message text
     let message: String
-    let width: Double
+    /// Properties of snackbar
+    let properties: Properties
+    /// An enum icon to be set to snackbar on the left side
     let icon: Icon
+    /// Configure the action on the right side
     let action: Action
-    let position: Position
+    /// Configure the color of background and texts
     let decorator: Decorator
-    let duration: Duration
     
     public init(
         title: String? = nil,
         message: String,
-        width: Double = .infinity,
-        icon: Icon,
+        properties: Properties = .default,
+        icon: Icon = .none,
         action: Action = .none,
-        position: Position = .bottom,
-        decorator: Decorator = .default,
-        duration: Duration = .fixed(seconds: 3)
+        decorator: Decorator = .default
     ) {
         self.title = title
         self.message = message
-        self.width = width
+        self.properties = properties
         self.icon = icon
         self.action = action
-        self.position = position
         self.decorator = decorator
-        self.duration = duration
     }
 }

@@ -24,24 +24,18 @@ struct SnackbarView: View {
                 if let title = snackbar.title, !title.isEmpty {
                     Text(title)
                         .font(Font.headline)
-                        .foregroundColor(snackbar.decorator.foregroundColor)
+                        .foregroundColor(snackbar.decorator.titleTextColor)
                 }
                 Text(snackbar.message)
                     .font(Font.caption)
-                    .foregroundColor(snackbar.decorator.foregroundColor)
+                    .foregroundColor(snackbar.decorator.messageTextColor)
             }
             Spacer(minLength: 10)
             
             actionButton
-//            Button {
-//                onActionTapped()
-//            } label: {
-//                Image(systemName: "xmark")
-//                    .foregroundColor(snackbar.icon.themeColor)
-//            }
         }
         .padding()
-        .frame(minWidth: 0, maxWidth: snackbar.width)
+        .frame(minWidth: 0, maxWidth: snackbar.decorator.width)
         .background(snackbar.decorator.backgroundColor)
         .cornerRadius(8)
         .padding(.horizontal, 16)
@@ -94,10 +88,9 @@ struct SnackbarView: View {
         snackbar: Snackbar(
             title: "title",
             message: "message",
-            icon: .info,
-            duration: .fixed(seconds: 3)
+            properties: .default,
+            icon: .info
         ),
         onActionTapped: {
         })
-//    SnackbarView(icon: .info, decorator: .default, message: "message") {}
 }
