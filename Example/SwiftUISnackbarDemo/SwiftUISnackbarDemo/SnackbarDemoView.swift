@@ -96,13 +96,13 @@ struct SnackbarDemoView: View {
         HStack {
             Text("Title:")
             TextField("Title", text: $title)
-                .border(.black, width: 1)
+                .border(.primary, width: 1)
         }
         
         HStack {
             Text("Message:")
             TextEditor(text: $message)
-                .border(.black, width: 1)
+                .border(.primary, width: 1)
                 .frame(maxHeight: 60)
         }
         
@@ -137,7 +137,7 @@ struct SnackbarDemoView: View {
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 3)
-                .stroke(.black, lineWidth: 1)
+                .stroke(.primary, lineWidth: 1)
         )
     }
     
