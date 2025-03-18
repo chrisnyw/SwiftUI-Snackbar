@@ -22,14 +22,14 @@ struct SnackbarDemoView: View {
     private let actions: [Snackbar.Action] = [
         .none,
         .xMark(.primary),
-        .text("Action", .orange, { print("tapped action text") }),
+        .text("Action", .primary, { print("tapped action text") }),
         .systemImage("gear", .brown, { print("tapped system image") }),
         .imageName("natural", { print("tapped nutural image") } )
     ]
     
     @State private var title: String = "Title"
     @State private var message: String = "Your Snackbar message content!!"
-    @State private var snackbarPosition: Snackbar.Position = .top
+    @State private var snackbarPosition: Snackbar.Position = .top(offset: 0)
     @State private var snackbarIcon: Snackbar.Icon = .none
     @State private var duration: Snackbar.Duration = .fixed(seconds: 3)
     @State private var action: Snackbar.Action = .none
@@ -51,7 +51,7 @@ struct SnackbarDemoView: View {
             Text("Position:")
             Picker("Position", selection: $snackbarPosition) {
                 ForEach(Snackbar.Position.allCases, id: \.self) { position in
-                    Text(position.rawValue.capitalized)
+                    Text(position.description)
                 }
             }
             .pickerStyle(.segmented)
@@ -152,7 +152,7 @@ struct SnackbarDemoView: View {
                     message: "Success!",
                     properties:
                         Snackbar.Properties(
-                            position: .bottom,
+                            position: .bottom(offset: 0),
                             duration: .fixed(seconds: 5)
                         ),
                     icon: .system(imageName: "info.circle.fill", Color: .white),
@@ -173,7 +173,7 @@ struct SnackbarDemoView: View {
                     message: "Error!",
                     properties:
                         Snackbar.Properties(
-                            position: .bottom,
+                            position: .bottom(offset: 0),
                             duration: .fixed(seconds: 5)
                         ),
                     icon: .system(imageName: "xmark.circle.fill", Color: .white),
@@ -194,7 +194,7 @@ struct SnackbarDemoView: View {
                     message: "Warning!",
                     properties:
                         Snackbar.Properties(
-                            position: .top,
+                            position: .top(offset: 0),
                             duration: .fixed(seconds: 5)
                         ),
                     icon: .system(imageName: "exclamationmark.triangle.fill", Color: .white),
@@ -221,7 +221,7 @@ struct SnackbarDemoView: View {
                     message: "Your message going here!",
                     properties:
                         Snackbar.Properties(
-                            position: .bottom,
+                            position: .bottom(offset: 0),
                             duration: .fixed(seconds: 5),
                             disableHapticVibration: true
                         ),

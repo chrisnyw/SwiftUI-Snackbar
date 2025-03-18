@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Snackbar: Equatable {
+public struct Snackbar: Equatable, Sendable {
     /// Optional title text
     let title: String?
     /// Compulsory message text

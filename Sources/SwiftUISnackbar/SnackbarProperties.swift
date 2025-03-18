@@ -85,10 +85,16 @@ public extension Snackbar {
         case imageName(String, ActionHanlder)
     }
     
-    public enum Position: String, CaseIterable {
-        case top
+    public enum Position: Hashable, CaseIterable {
+        public static var allCases: [Snackbar.Position] = [
+            .top(offset: 0),
+            .center,
+            .bottom(offset: 0)
+        ]
+        
+        case top(offset: Double)
         case center
-        case bottom
+        case bottom(offset: Double)
     }
     
     public enum Duration: Hashable {
@@ -105,7 +111,7 @@ public extension Snackbar {
         let disableHapticVibration: Bool
         
         public init(
-            position: Snackbar.Position = .top,
+            position: Snackbar.Position = .top(offset: 0),
             duration: Snackbar.Duration = .fixed(seconds: 3),
             disableHapticVibration: Bool = false
         ) {
@@ -189,6 +195,14 @@ extension Snackbar.Action {
 }
     
 extension Snackbar.Position {
+    public var description: String {
+        switch self {
+        case .top(let offset): return "Top: \(offset)"
+        case .center: return "Center"
+        case .bottom(let offset): return "Bottom: \(offset)"
+        }
+    }
+    
     var alignment: Alignment {
         switch self {
         case .top: return .top
@@ -199,9 +213,10 @@ extension Snackbar.Position {
     
     var yOffset: CGFloat {
         switch self {
-        case .top: return 0
+        case .top(let offset),
+                .bottom(let offset):
+            return offset
         case .center: return 0
-        case .bottom: return 0
         }
     }
 }
