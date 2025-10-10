@@ -39,7 +39,7 @@ struct SnackbarView: View {
         .background(snackbar.decorator.backgroundColor)
         .cornerRadius(8)
         .padding(.horizontal, 16)
-        .shadow(color: Color.black.opacity(0.8), radius: 8)
+        .shadow(color: snackbar.decorator.shadowColor, radius: snackbar.decorator.shadowRadius)
     }
     
     @ViewBuilder var actionButton: some View {
