@@ -37,7 +37,7 @@ struct SnackbarView: View {
         .padding()
         .frame(minWidth: 0, maxWidth: snackbar.decorator.width)
         .background(snackbar.decorator.backgroundColor)
-        .cornerRadius(8)
+        .cornerRadius(snackbar.decorator.cornerRadius)
         .padding(.horizontal, 16)
         .shadow(color: snackbar.decorator.shadowColor, radius: snackbar.decorator.shadowRadius)
     }

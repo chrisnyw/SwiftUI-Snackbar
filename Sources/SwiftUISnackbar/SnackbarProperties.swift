@@ -19,6 +19,8 @@ public extension Snackbar {
         let titleTextColor: Color
         /// Set the message text color
         let messageTextColor: Color
+        /// Set the snackbar corner radius
+        let cornerRadius: CGFloat
         /// Set the snackbar shadow color
         let shadowColor: Color
         /// Set the snackbar shadow blur radius
@@ -29,6 +31,7 @@ public extension Snackbar {
             backgroundColor: Color = Color(UIColor.secondarySystemBackground),
             titleTextColor: Color = .primary,
             messageTextColor: Color = .primary,
+            cornerRadius: CGFloat = 8,
             shadowColor: Color = Color.black.opacity(0.8),
             shadowRadius: CGFloat = 8
         ) {
@@ -36,6 +39,7 @@ public extension Snackbar {
             self.backgroundColor = backgroundColor
             self.titleTextColor = titleTextColor
             self.messageTextColor = messageTextColor
+            self.cornerRadius = cornerRadius
             self.shadowColor = shadowColor
             self.shadowRadius = shadowRadius
         }
